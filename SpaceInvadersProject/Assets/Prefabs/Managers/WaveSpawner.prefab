@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3110595727440141371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3110595727440141370}
+  - component: {fileID: 3110595727440141365}
+  - component: {fileID: 3428479195155140393}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3110595727440141370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110595727440141371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3110595727440141365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110595727440141371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1c79bd93698ae4d8e67952e6bbf3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridOriginCellOffset: {x: 8, y: 3}
+  smallInvaderPrefab: {fileID: 3053793919835811258, guid: 24fcba5fe4137014da868eb8b29c6d63, type: 3}
+  mediumInvaderPrefab: {fileID: 2423584142458255060, guid: a371bebd1dda2eb4f8a6c1c3e4664f8b, type: 3}
+  largeInvaderPrefab: {fileID: 6827813016035780578, guid: 0573ec7e6e3b5d24d94fafb52747697c, type: 3}
+--- !u!114 &3428479195155140393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110595727440141371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b33fc524706734b980e760a77a4693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepSizeX: 2
+  stepSizeY: 8

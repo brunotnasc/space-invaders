@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8617352265354184370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8617352265354184371}
+  - component: {fileID: 8617352265354184372}
+  - component: {fileID: 998777188}
+  - component: {fileID: 4219594693526570683}
+  - component: {fileID: 7452037203372180460}
+  - component: {fileID: 1989051959470637680}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8617352265354184371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8617352265354184372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab51f63a08a9364ab56c5c5d8276cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboardManager: {fileID: 998777188}
+  livesManager: {fileID: 4219594693526570683}
+  waveController: {fileID: 0}
+  playerSpawner: {fileID: 7452037203372180460}
+  ufoSpawner: {fileID: 1989051959470637680}
+  waveSpawner: {fileID: 0}
+  projectileSpawner: {fileID: 0}
+  gameOverText: {fileID: 0}
+  grid: {fileID: 0}
+--- !u!114 &998777188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571c0649a6e84504f94b83dae626d1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1ScoreCounter: {fileID: 0}
+  p2ScoreCounter: {fileID: 0}
+  highScoreCounter: {fileID: 0}
+--- !u!114 &4219594693526570683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63ea80b831334a49877050d7ac70ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 3
+  counterText: {fileID: 0}
+  iconPanel: {fileID: 0}
+  iconPrefab: {fileID: 1176479193221408933, guid: f97535ed202c90a40b7e00832d4e90bc, type: 3}
+--- !u!114 &7452037203372180460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641db18f5a91e0840bca591283527c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableElement: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  autoRespawn: 0
+  respawnDelay: 3
+--- !u!114 &1989051959470637680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617352265354184370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8e2deade6bd974dbd5972979bfba4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableElement: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  autoRespawn: 1
+  respawnDelay: 25
+  alternativeSpawnPoint: {fileID: 0}

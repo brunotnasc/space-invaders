@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+
+namespace SpaceInvaders
+{
+    [DisallowMultipleComponent]
+    public class ScreenDistorter : MonoBehaviour
+    {
+        [SerializeField, Range(0f, 10f)]
+        private float distortionStrength = 2f;
+        [SerializeField]
+        private AnimationCurve distortionCurve;
+
+        private ChromaticAberration chromaticAberration;
+
+        private float Distortion
+        {
+            get => chromaticAberration.intensity.value;
+            set => chromaticAberration.intensity.value = value;
+        }
+
+        public void DistortScreen(float duration)
+        {
+            StartCoroutine(ScreenDistortionCoroutine(duration));
+        }
+
+        private void Awake()
+        {
+            Camera mainCamera = Camera.main;
+            PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
+            chromaticAberration = volume.profile.settings.Find(effect => effect is ChromaticAberration) as ChromaticAberration;
+        }
+
+        private IEnumerator ScreenDistortionCoroutine(float duration)
+        {
+            float original = Distortion;
+
+            float time = 0f;
+            while (time < duration)
+            {
+                float t = time / duration;
+                time += Time.deltaTime;
+
+                Distortion = distortionCurve.Evaluate(t) * distortionStrength;
+
+                yield return null;
+            }
+
+            Distortion = original;
+        }
+    }
+}

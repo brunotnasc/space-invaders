@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6154844582661007634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6154844582661007632}
+  - component: {fileID: 6154844582661007633}
+  - component: {fileID: 8411534918669116015}
+  - component: {fileID: 15649914796692448}
+  m_Layer: 0
+  m_Name: ProjectileSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6154844582661007632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154844582661007634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6154844582661007633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154844582661007634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99980d34f95bf48429aa233b7ba63225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPrimaryProjectilesActive: 1
+  maxSecondaryProjectilesActive: 4
+  maxInvaderProjectilesActive: 3
+  gainSecondaryEveryNShots: 10
+  secondaryResourceManager: {fileID: 15649914796692448}
+--- !u!114 &8411534918669116015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154844582661007634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2916c8e5ba0e5a743865b2b8c0387eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrimaryProjectilePrefab: {fileID: 8126334758303894997, guid: 5ca59d21442fddf4eb69445abda4afc8, type: 3}
+  playerSecondaryProjectilePrefab: {fileID: 4837113140957438099, guid: 7aa7acbe08ee5d340876dd75e2e2e535, type: 3}
+  invaderProjectilePrefabs:
+  - {fileID: 711780634340417694, guid: 0fec4f3a9c85c594ba0ae15d1edc23bb, type: 3}
+  - {fileID: 3368032191957962329, guid: e96542b181207e04ea90bf7ae5307392, type: 3}
+  - {fileID: 7324514322216219792, guid: a89e98e4c6e9c4f44a82a2907d2c617e, type: 3}
+--- !u!114 &15649914796692448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154844582661007634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5277fbaa5dfc9e44b8f997816173eede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max: 4
+  initial: 1
+  counterText: {fileID: 0}
+  iconPanel: {fileID: 0}
+  iconPrefab: {fileID: 5429913803832557052, guid: 89db2dbea1a0dd14ea0c8acc311b19ef, type: 3}
