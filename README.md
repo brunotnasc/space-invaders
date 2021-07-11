@@ -1,6 +1,8 @@
 # Space Invaders
 
-I've tried to emulate the original style of the arcade game. The screen represents the resolution (224x256) and proportions of the original arcade machine. The way the enemies move and the positioning of every element on the screen uses a regular grid — as in the original game — and trying to achieve a "pixel-perfect" appearance. Also, all the elements are rendered white. The coloring (red or green) is applied using an overlay that colors everything below it, similar to the original arcade machines, which had a colored layer glued over portions of the screen. All is done just for educational purposes.
+I've tried to emulate the original style of the arcade game. The screen represents the resolution (224×256) and proportions of the original arcade machine. The way the enemies move and the positioning of every element on the screen uses a regular grid — as in the original game — and trying to achieve a “pixel-perfect” appearance. Also, all¹ the elements are rendered white. The coloring (red or green) is applied using an overlay that colors everything below it, similar to the original arcade machines, which had a colored layer glued over portions of the screen. All is done just for educational purposes.
+
+> ¹ The only exception is the Guided Missile's targeting implementation, which paints the invader red. This will be changed, and a sprite will be used to mark a target that is being tracked by a missile.
 
 ## New mechanics
 
@@ -10,9 +12,9 @@ Here's where we try to make it even more fun. I've created three additional mech
 
 ### Guided Missile
 
-A secondary — more fun — weapon. A fire-and-forget missile that allows the player to hunt down enemies while safe under a shelter. The missiles are slower than the regular player's laser cannon but can take down enemies anywhere on the screen. 
+A secondary — more fun — weapon. A fire-and-forget missile that allows the player to hunt down enemies while safe under a shelter. The missiles are slower than the regular player's laser cannon, but can take down enemies anywhere on the screen. 
 
-The player has a limited supply of missiles. That supply is periodically replenished once a certain number of regular shots is fired. Just be careful not to fire too many missiles at once. They can collide and destroy each other.
+The player has a limited supply of missiles. Firing a certain number of regular shots replenishes the missiles. Just be careful not to fire too many missiles at once. They can collide and destroy each other.
 
 ### Pulse Shield
 
@@ -22,9 +24,9 @@ The Pulse Shield has a short duration and a long recharge time. Also, the shield
 
 ### Omega Ray
 
-The definitive alien killer weapon. This ray destroys everything on its path. However, once activated, the player is immobilized until the ray's long charging time is completed.
+The definitive alien killer weapon. This ray destroys everything on its path. However, once activated, the player is immobilized until the ray's long charging and firing action completes.
 
-The Omega Ray is powerful but forces the player to be vulnerable to incoming enemy fire until the weapon activation finishes.
+The Omega Ray is powerful, but forces the player to be vulnerable to incoming enemy fire and should be correctly timed. You can fire it from behind a shelter, but then you won't have that shelter anymore.
 
 ## Key bindings
 
@@ -32,7 +34,7 @@ The Omega Ray is powerful but forces the player to be vulnerable to incoming ene
 |---------------------|-------------|
 | Move right          | Right arrow |
 | Move left           | Left arrow  |
-| Fire Laser Cannon   | Spacebar    |
+| Fire Laser Cannon   | Space bar   |
 | Fire Guided Missile | Left Ctrl   |
 | Fire Omega Ray      | Right Ctrl  |
 | Deploy Pulse Shield | Up arrow    |
@@ -43,8 +45,8 @@ I've found a few assets throughout the internet. Most of the sprites of the inva
 
 ## References
 
-So far, most of the information I've got about the original game's mechanics and quirks comes from the following sources:
-- [Playe guide for Space Invaders](https://www.classicgaming.cc/classics/space-invaders/play-guide)
+So far, most of the information I've got about the original game mechanics and quirks comes from the following sources:
+- [Player guide for Space Invaders](https://www.classicgaming.cc/classics/space-invaders/play-guide)
 - [Emulating the Space Invaders look and feel](https://tobiasvl.github.io/blog/space-invaders/)
 - [Wikipedia entry](https://en.wikipedia.org/wiki/Space_Invaders)
 
