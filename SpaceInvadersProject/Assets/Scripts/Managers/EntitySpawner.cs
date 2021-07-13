@@ -9,39 +9,45 @@ namespace SpaceInvaders
         [SerializeField]
         protected TSpawnable spawnableElement;
         [SerializeField]
-        protected Transform spawnPoint;
+        protected Transform[] spawnPoints;
+        [SerializeField]
+        protected float spawnDelay = 3f;
         [SerializeField]
         protected bool autoRespawn = false;
-        [SerializeField]
-        protected float respawnDelay = 3f;
 
-        private Coroutine respawnCoroutine;
+        private Coroutine spawnCoroutine;
         private GameManager gameManager;
 
-        public virtual void Respawn()
+        /// <summary>
+        /// Spawn the <typeparamref name="TSpawnable"/> at one of its predefined 
+        /// respawn points after a predefined amount of time.
+        /// </summary>
+        public virtual void Spawn()
         {
-            Respawn(respawnDelay);
+            Spawn(spawnDelay);
         }
 
-        public virtual void Respawn(float delay)
+        /// <summary>
+        /// Spawn the <typeparamref name="TSpawnable"/> at one of its predefined 
+        /// respawn points after <paramref name="delay"/> seconds.
+        /// </summary>
+        /// <param name="delay">Time to respawn.</param>
+        public virtual void Spawn(float delay)
         {
-            if (respawnCoroutine == null && isActiveAndEnabled)
+            if (spawnCoroutine == null && isActiveAndEnabled)
             {
-                IEnumerator routine = RespawnCoroutine(
+                IEnumerator routine = SpawnCoroutine(
                     spawnableElement,
-                    GetPosition(),
-                    GetDirection(),
+                    GetSpawnPosition(),
+                    GetSpawnDirection(),
                     delay);
-                respawnCoroutine = StartCoroutine(routine);
+                spawnCoroutine = StartCoroutine(routine);
             }
         }
 
-        public virtual Vector2 GetPosition()
-        {
-            return spawnPoint.position;
-        }
+        protected abstract Vector2 GetSpawnPosition();
 
-        public abstract Vector2 GetDirection();
+        protected abstract Vector2 GetSpawnDirection();
 
         protected virtual void Awake()
         {
@@ -51,18 +57,18 @@ namespace SpaceInvaders
             spawnableElement.Despawned += OnElementDespawnedEventHandler;
         }
 
-        private IEnumerator RespawnCoroutine(ISpawnable spawnable, Vector2 position, Vector2 direction, float delay)
+        private IEnumerator SpawnCoroutine(ISpawnable spawnable, Vector2 position, Vector2 direction, float delay)
         {
             yield return new WaitForSeconds(delay);
             spawnable.Spawn(position, direction);
-            respawnCoroutine = null;
+            spawnCoroutine = null;
         }
 
         private void OnElementDespawnedEventHandler(object sender, EventArgs e)
         {
             if (autoRespawn)
             {
-                Respawn();
+                Spawn();
             }
         }
 
@@ -70,10 +76,10 @@ namespace SpaceInvaders
         {
             if (sender is GameManager)
             {
-                if (respawnCoroutine != null)
+                if (spawnCoroutine != null)
                 {
-                    StopCoroutine(respawnCoroutine);
-                    respawnCoroutine = null;
+                    StopCoroutine(spawnCoroutine);
+                    spawnCoroutine = null;
                 }
             }
         }
@@ -82,10 +88,10 @@ namespace SpaceInvaders
         {
             if (sender is GameManager)
             {
-                if (respawnCoroutine != null)
+                if (spawnCoroutine != null)
                 {
-                    StopCoroutine(respawnCoroutine);
-                    respawnCoroutine = null;
+                    StopCoroutine(spawnCoroutine);
+                    spawnCoroutine = null;
                 }
             }
         }

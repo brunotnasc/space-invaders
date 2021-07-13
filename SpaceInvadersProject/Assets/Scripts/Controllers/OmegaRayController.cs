@@ -41,7 +41,6 @@ namespace SpaceInvaders
         public void Despawn()
         {
             gameObject.SetActive(false);
-            IsFiring = false;
             Despawned?.Invoke(this, EventArgs.Empty);
         }
 
@@ -75,9 +74,7 @@ namespace SpaceInvaders
             if (isActiveAndEnabled)
             {
                 _ = StartCoroutine(FireCoroutine());
-            }
-
-            IsFiring = true;
+            }            
         }
 
         private void OnCollision(GameObject other)
@@ -93,6 +90,8 @@ namespace SpaceInvaders
 
         private IEnumerator FireCoroutine()
         {
+            IsFiring = true;
+
             yield return ChargeCoroutine();
 
             screenDistorter.DistortScreen(ScaleChangeTime * 2f + duration);
@@ -104,6 +103,8 @@ namespace SpaceInvaders
             yield return LerpScaleXCoroutine(1f, 0f, transform);
 
             Despawn();
+
+            IsFiring = false;
         }
 
         private IEnumerator ChargeCoroutine()

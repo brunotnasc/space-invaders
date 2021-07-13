@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5334911009221055051}
   m_Layer: 0
-  m_Name: UFOSpawnPoint _Alternative
+  m_Name: UFOSpawnPoint_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9129565546267698225}
   m_Layer: 0
-  m_Name: UFOSpawnPoint
+  m_Name: UFOSpawnPoint_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

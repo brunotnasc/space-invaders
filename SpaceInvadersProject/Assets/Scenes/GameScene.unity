@@ -1360,7 +1360,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5334911010640162516, guid: 7165b5d4b8c489b4daaf47c930806546, type: 3}
       propertyPath: m_Name
-      value: SpawnPoints
+      value: RespawnPoints
       objectReference: {fileID: 0}
     - target: {fileID: 5334911010640162519, guid: 7165b5d4b8c489b4daaf47c930806546, type: 3}
       propertyPath: m_RootOrder
@@ -1614,15 +1614,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 952469692}
     - target: {fileID: 1989051959470637680, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 3799861823282971332}
-    - target: {fileID: 1989051959470637680, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
       propertyPath: spawnableElement
       value: 
       objectReference: {fileID: 661108143}
     - target: {fileID: 1989051959470637680, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
-      propertyPath: alternativeSpawnPoint
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 3799861823282971332}
+    - target: {fileID: 1989051959470637680, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
+      propertyPath: spawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1783035070}
     - target: {fileID: 4219594693526570683, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
@@ -1634,13 +1634,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1098803208}
     - target: {fileID: 7452037203372180460, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 76083526793598352}
-    - target: {fileID: 7452037203372180460, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
       propertyPath: spawnableElement
       value: 
       objectReference: {fileID: 748489778}
+    - target: {fileID: 7452037203372180460, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 76083526793598352}
     - target: {fileID: 8617352265354184370, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
       propertyPath: m_Name
       value: GameManager

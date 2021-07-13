@@ -139,7 +139,7 @@ namespace SpaceInvaders
 
                 if (livesManager.GetExtraLife())
                 {
-                    playerSpawner.Respawn();
+                    playerSpawner.Spawn();
                 }
                 else
                 {
@@ -153,7 +153,7 @@ namespace SpaceInvaders
             if (sender is WaveSpawner)
             {
                 waveController.Play();
-                playerSpawner.Respawn(1f);
+                playerSpawner.Spawn(1f);
             }
         }
 

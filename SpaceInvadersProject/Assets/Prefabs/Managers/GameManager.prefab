@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max: 3
+  initial: 3
   counterText: {fileID: 0}
   iconPanel: {fileID: 0}
   iconPrefab: {fileID: 1176479193221408933, guid: f97535ed202c90a40b7e00832d4e90bc, type: 3}
@@ -100,9 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableElement: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  spawnDelay: 2
   autoRespawn: 0
-  respawnDelay: 3
 --- !u!114 &1989051959470637680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableElement: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnDelay: 25
   autoRespawn: 1
-  respawnDelay: 25
-  alternativeSpawnPoint: {fileID: 0}

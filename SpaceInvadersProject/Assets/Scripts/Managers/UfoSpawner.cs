@@ -4,30 +4,33 @@ namespace SpaceInvaders
 {
     public class UfoSpawner : EntitySpawner<UfoController>
     {
-        [SerializeField]
-        private Transform alternativeSpawnPoint;
+        private bool useAlternativeSpawnPoint;
 
-        private bool switchSpawnPoint;
-
-        public override Vector2 GetPosition()
+        public override void Spawn(float delay)
         {
-            return switchSpawnPoint ? alternativeSpawnPoint.position : spawnPoint.position;
+            base.Spawn(delay);
+            useAlternativeSpawnPoint = Random.Range(0, 2) > 0;
         }
 
-        public override Vector2 GetDirection()
+        protected override void Awake()
         {
-            return switchSpawnPoint ? Vector2.right : Vector2.left;
+            base.Awake();
+            Debug.Assert(spawnPoints.Length == 2, $"{nameof(UfoSpawner)} should have 2 spawn points.");
         }
 
-        public override void Respawn(float delay)
+        protected override Vector2 GetSpawnPosition()
         {
-            base.Respawn(delay);
-            switchSpawnPoint = Random.Range(0, 2) > 0;
+            return useAlternativeSpawnPoint ? spawnPoints[1].position : spawnPoints[0].position;
+        }
+
+        protected override Vector2 GetSpawnDirection()
+        {
+            return useAlternativeSpawnPoint ? Vector2.right : Vector2.left;
         }
 
         private void Start()
         {
-            Respawn();
+            Spawn();
         }
     }
 }
