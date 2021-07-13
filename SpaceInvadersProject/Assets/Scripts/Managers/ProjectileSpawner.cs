@@ -14,7 +14,7 @@ namespace SpaceInvaders
         [SerializeField, Range(1, 10)]
         private int maxInvaderProjectilesActive = 3;
         [SerializeField, Range(1, 100), Space]
-        private int gainSecondaryEveryNShots = 10;
+        public int gainSecondaryEveryNShots = 10;
         [SerializeField, Space]
         private PlayerResourceManager secondaryResourceManager;
 
