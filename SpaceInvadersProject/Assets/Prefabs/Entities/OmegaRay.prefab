@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 2
-  chargeTime: 4
+  chargeTime: 5
   doDamageOnCollision:
     serializedVersion: 2
     m_Bits: 896

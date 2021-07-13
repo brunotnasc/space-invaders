@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace SpaceInvaders
     [RequireComponent(typeof(Animator))]
     public class PlayerController : EntityController
     {
+        public event EventHandler Exploding;
+
         [SerializeField, Header("Key Bindings")]
         private KeyCode fireLaserKey = KeyCode.Space;
         [SerializeField]
@@ -36,6 +39,12 @@ namespace SpaceInvaders
             }
         }
 
+        public override void Destroy()
+        {
+            Exploding?.Invoke(this, EventArgs.Empty);
+            base.Destroy();
+        }
+
         protected override void Awake()
         {
             base.Awake();
@@ -55,6 +64,25 @@ namespace SpaceInvaders
 
         private void Update()
         {
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+            // Sepukku
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                Destroy();
+            }
+
+            // Developer God mode
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                maxHP = Health = 10000;
+                FindObjectOfType<ProjectileSpawner>().maxPrimaryProjectilesActive = 10;
+                FindObjectOfType<ProjectileSpawner>().maxSecondaryProjectilesActive = 10;
+                FindObjectOfType<ProjectileSpawner>().gainSecondaryEveryNShots = 1;
+                omegaRay.duration = pulseShield.duration = 5f;
+                omegaRay.chargeTime = pulseShield.rechargeTime = 0.5f;
+            }
+#endif
+
             if (IsExploding || omegaRay.IsFiring)
             {
                 return;
@@ -79,24 +107,6 @@ namespace SpaceInvaders
             {
                 DeployPulseShield();
             }
-
-#if DEVELOPMENT_BUILD || UNITY_EDITOR
-            // Sepukku
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                Destroy();
-            }
-
-            // Developer God mode
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                maxHP = Health = 10000;
-                FindObjectOfType<ProjectileSpawner>().maxPrimaryProjectilesActive = 10;
-                FindObjectOfType<ProjectileSpawner>().maxSecondaryProjectilesActive = 10;
-                omegaRay.duration = pulseShield.duration = 5f;
-                omegaRay.chargeTime = pulseShield.rechargeTime = 0.5f;
-            }
-#endif
         }
 
         private void FixedUpdate()

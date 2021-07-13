@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -14,6 +13,7 @@ namespace SpaceInvaders
         private AnimationCurve distortionCurve;
 
         private ChromaticAberration chromaticAberration;
+        private float defaultDistortion;
 
         private float Distortion
         {
@@ -23,7 +23,13 @@ namespace SpaceInvaders
 
         public void DistortScreen(float duration)
         {
-            StartCoroutine(ScreenDistortionCoroutine(duration));
+            _ = StartCoroutine(ScreenDistortionCoroutine(duration));
+        }
+
+        public void Abort()
+        {
+            StopAllCoroutines();
+            Distortion = defaultDistortion;
         }
 
         private void Awake()
@@ -31,11 +37,12 @@ namespace SpaceInvaders
             Camera mainCamera = Camera.main;
             PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
             chromaticAberration = volume.profile.settings.Find(effect => effect is ChromaticAberration) as ChromaticAberration;
+            defaultDistortion = Distortion;
         }
 
         private IEnumerator ScreenDistortionCoroutine(float duration)
         {
-            float original = Distortion;
+            defaultDistortion = Distortion;
 
             float time = 0f;
             while (time < duration)
@@ -48,7 +55,7 @@ namespace SpaceInvaders
                 yield return null;
             }
 
-            Distortion = original;
+            Distortion = defaultDistortion;
         }
     }
 }

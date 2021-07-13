@@ -41,21 +41,23 @@ namespace SpaceInvaders
         public void Despawn()
         {
             gameObject.SetActive(false);
-            Despawned?.Invoke(this, EventArgs.Empty);
-        }
 
-        public void Abort()
-        {
-            StopAllCoroutines();
-            Despawn();
+            if (IsFiring)
+            {
+                StopAllCoroutines();
+                screenDistorter.Abort();
+                IsFiring = false;
+            }
+
+            Despawned?.Invoke(this, EventArgs.Empty);
         }
 
         private void Awake()
         {
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             screenDistorter = GetComponent<ScreenDistorter>();
-            gameManager.Player.Destroyed += (s, e) => Abort();
-            gameManager.Player.Despawned += (s, e) => Abort();
+            gameManager.Player.Exploding += (s, e) => Despawn();
+            gameManager.Player.Despawned += (s, e) => Despawn();
             gameObject.SetActive(false);
         }
 
@@ -73,8 +75,9 @@ namespace SpaceInvaders
         {
             if (isActiveAndEnabled)
             {
+                IsFiring = true;
                 _ = StartCoroutine(FireCoroutine());
-            }            
+            }
         }
 
         private void OnCollision(GameObject other)
@@ -90,8 +93,6 @@ namespace SpaceInvaders
 
         private IEnumerator FireCoroutine()
         {
-            IsFiring = true;
-
             yield return ChargeCoroutine();
 
             screenDistorter.DistortScreen(ScaleChangeTime * 2f + duration);
@@ -103,8 +104,6 @@ namespace SpaceInvaders
             yield return LerpScaleXCoroutine(1f, 0f, transform);
 
             Despawn();
-
-            IsFiring = false;
         }
 
         private IEnumerator ChargeCoroutine()
