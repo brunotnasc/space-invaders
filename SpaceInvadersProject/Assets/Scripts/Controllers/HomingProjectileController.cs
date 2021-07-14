@@ -58,17 +58,23 @@ namespace SpaceInvaders
 
         private InvaderController FindInvaderTarget()
         {
-            InvaderController closestTarget = null;
-            float closestTargetDistance = float.PositiveInfinity;
+            float GetDistanceToTarget(InvaderController target) => Vector2.Distance(RBPosition, target.RBPosition);
 
+            // Check UFO
+            InvaderController ufo = gameManager.Ufo;
+            bool canTargetUfo = ufo.isActiveAndEnabled && !ufo.IsExploding;
+            InvaderController closestTarget = canTargetUfo ? ufo : null;
+            float closestTargetDistance = canTargetUfo ? GetDistanceToTarget(ufo) : float.PositiveInfinity;
+
+            // Check invader wave
             foreach (InvaderController invader in gameManager.Invaders)
             {
-                if (invader.IsExploding || !invader.isActiveAndEnabled)
+                if (!invader.isActiveAndEnabled || invader.IsExploding)
                 {
                     continue;
                 }
 
-                float distanceToTarget = Vector2.Distance(RBPosition, invader.RBPosition);
+                float distanceToTarget = GetDistanceToTarget(invader);
                 bool isCloser = distanceToTarget < closestTargetDistance;
                 if (isCloser)
                 {
