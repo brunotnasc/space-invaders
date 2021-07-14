@@ -6,10 +6,8 @@ namespace SpaceInvaders
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
-    public abstract class EntityController : MonoBehaviour, IShooter, IDestroyable, ISpawnable
+    public abstract class EntityController : MonoBehaviour, IDestroyable, ISpawnable
     {
-        public event EventHandler<Vector2> PrimaryFired;
-        public event EventHandler<Vector2> SecondaryFired;
         public event EventHandler Destroyed;
         public event EventHandler Spawned;
         public event EventHandler Despawned;
@@ -111,16 +109,6 @@ namespace SpaceInvaders
             {
                 Despawn();
             }
-        }
-
-        protected virtual void FirePrimaryWeapon()
-        {
-            PrimaryFired?.Invoke(this, transform.position);
-        }
-
-        protected virtual void FireSecondaryWeapon()
-        {
-            SecondaryFired?.Invoke(this, transform.position);
         }
 
         protected virtual IEnumerator ExplosionCoroutine()

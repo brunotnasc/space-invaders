@@ -9,6 +9,7 @@ namespace SpaceInvaders
         event EventHandler Despawned;
 
         void Spawn(Vector2 position, Vector2 direction);
+
         void Despawn();
     }
 }

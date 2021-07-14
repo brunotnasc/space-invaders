@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace SpaceInvaders
 {
-    public class InvaderController : EntityController, ICollisionReporter
+    public class InvaderController : EntityController, IShooter, ICollisionReporter
     {
+        public event EventHandler<Vector2> PrimaryFired;
+        public event EventHandler<Vector2> SecondaryFired;
         public event EventHandler<GameObject> Collided;
 
         public int Score => score;
@@ -73,6 +75,11 @@ namespace SpaceInvaders
         {
             bool isPoseA = spriteRenderer.sprite == poseA;
             spriteRenderer.sprite = isPoseA ? poseB : poseA;
+        }
+
+        private void FirePrimaryWeapon()
+        {
+            PrimaryFired?.Invoke(this, transform.position);
         }
 
         private IEnumerator TryToFireCoroutine()

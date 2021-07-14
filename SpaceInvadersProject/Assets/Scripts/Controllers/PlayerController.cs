@@ -5,8 +5,10 @@ using UnityEngine;
 namespace SpaceInvaders
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerController : EntityController
+    public class PlayerController : EntityController, IShooter
     {
+        public event EventHandler<Vector2> PrimaryFired;
+        public event EventHandler<Vector2> SecondaryFired;
         public event EventHandler Exploding;
 
         [SerializeField, Header("Key Bindings")]
@@ -124,6 +126,16 @@ namespace SpaceInvaders
             {
                 Move(Vector2.left);
             }
+        }
+
+        private void FirePrimaryWeapon()
+        {
+            PrimaryFired?.Invoke(this, transform.position);
+        }
+
+        private void FireSecondaryWeapon()
+        {
+            SecondaryFired?.Invoke(this, transform.position);
         }
 
         private void Move(Vector2 direction)
