@@ -17,16 +17,24 @@ namespace SpaceInvaders
         public bool IsFiring { get; private set; }
 
         [SerializeField, Range(1f, 5f)]
-        public float duration = 2f;
-        [SerializeField, Range(1f, 5f)]
-        public float chargeTime = 3f;
+        private float duration = 2f;
+        [SerializeField, Range(1f, 6f)]
+        private float chargeTime = 3f;
         [SerializeField, Space]
-        protected LayerMask doDamageOnCollision;
+        private LayerMask doDamageOnCollision;
         [SerializeField, Space]
         private GameObject ray;
 
         private GameManager gameManager;
         private ScreenDistorter screenDistorter;
+
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+        public void SetDurationAndChargeTime(float duration, float chargeTime)
+        {
+            this.duration = duration;
+            this.chargeTime = chargeTime;
+        }
+#endif
 
         public void Spawn(Vector2 position, Vector2 direction)
         {

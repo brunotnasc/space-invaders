@@ -33,22 +33,9 @@ namespace SpaceInvaders
         protected GameManager gameManager;
         protected Coroutine explosionCoroutine;
 
-        public void SetColor(Color color)
-        {
-            spriteRenderer.color = color;
-        }
-
-        public void ResetColor()
-        {
-            spriteRenderer.color = Color.white;
-        }
-
         public virtual void Spawn(Vector2 position, Vector2 direction)
         {
-            Health = maxHP;
-            IsExploding = false;
-            spriteRenderer.sprite = initialSprite;
-            ResetColor();
+            ResetController();
             transform.position = position;
             gameObject.SetActive(true);
             Spawned?.Invoke(this, EventArgs.Empty);
@@ -62,7 +49,6 @@ namespace SpaceInvaders
 
         public virtual void Destroy()
         {
-            ResetColor();
             if (explosionCoroutine == null && isActiveAndEnabled)
             {
                 rb2D.velocity = Vector2.zero;
@@ -119,7 +105,18 @@ namespace SpaceInvaders
             Destroyed?.Invoke(this, EventArgs.Empty);
             yield return null;
             Despawn();
-            explosionCoroutine = null;
+        }
+
+        protected virtual void ResetController()
+        {
+            Health = maxHP;
+            spriteRenderer.sprite = initialSprite;
+            if (explosionCoroutine != null)
+            {
+                StopCoroutine(explosionCoroutine);
+                explosionCoroutine = null;
+            }
+            IsExploding = false;
         }
     }
 }

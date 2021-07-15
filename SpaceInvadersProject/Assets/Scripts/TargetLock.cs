@@ -5,11 +5,10 @@ namespace SpaceInvaders
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(HomingProjectileController))]
-    public class TargetPainter : MonoBehaviour
+    public class TargetLock : MonoBehaviour
     {
         [SerializeField]
-        private Color targetColor = Color.red;
-
+        private GameObject targetMarker;
         private HomingProjectileController projectile;
 
         private void Awake()
@@ -18,26 +17,27 @@ namespace SpaceInvaders
             projectile.TargetAcquired += OnTargetAcquiredEventHandler;
             projectile.TargetLost += OnTargetLostEventHandler;
             projectile.Despawned += OnProjectileDespawnedEventHandler;
+            targetMarker.SetActive(false);
         }
 
         private void OnTargetAcquiredEventHandler(object sender, EntityController target)
         {
-            target.SetColor(targetColor);
+            targetMarker.transform.SetParent(target.transform, false);
+            targetMarker.SetActive(true);
         }
 
         private void OnTargetLostEventHandler(object sender, EntityController target)
         {
-            target.ResetColor();
+            targetMarker.transform.SetParent(transform, false);
+            targetMarker.SetActive(false);
         }
 
         private void OnProjectileDespawnedEventHandler(object sender, EventArgs e)
         {
-            if (sender is HomingProjectileController projectile)
+            if (sender is HomingProjectileController)
             {
-                if (projectile.Target != null)
-                {
-                    projectile.Target.ResetColor();
-                }
+                targetMarker.transform.SetParent(transform, false);
+                targetMarker.SetActive(false);
             }
         }
     }

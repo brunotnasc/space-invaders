@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RayCharge_1
+  m_Name: RayCharging
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

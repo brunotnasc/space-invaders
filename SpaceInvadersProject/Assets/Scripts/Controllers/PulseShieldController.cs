@@ -14,9 +14,9 @@ namespace SpaceInvaders
         public event EventHandler Recharged;
 
         [SerializeField, Range(0.1f, 3f)]
-        public float duration = 1f;
+        private float duration = 1f;
         [SerializeField, Range(0f, 60f)]
-        public float rechargeTime = 30f;
+        private float rechargeTime = 30f;
         [SerializeField, Space]
         private RectTransform pulseShieldIndicator;
 
@@ -24,6 +24,14 @@ namespace SpaceInvaders
         private bool isCharged;
         private Coroutine autoDespawnCoroutine;
         private Coroutine rechargeCoroutine;
+
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+        public void SetDurationAndRechargeTime(float duration, float rechargeTime)
+        {
+            this.duration = duration;
+            this.rechargeTime = rechargeTime;
+        }
+#endif
 
         public void Spawn(Vector2 position, Vector2 direction)
         {

@@ -40,7 +40,7 @@ namespace SpaceInvaders
         {
             if (Target != null)
             {
-                if (Target.IsExploding)
+                if (Target.IsExploding || !Target.isActiveAndEnabled)
                 {
                     OnTargetLost();
                     return;
@@ -95,7 +95,6 @@ namespace SpaceInvaders
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             Debug.Log("Reacquiring target");
-            SetColor(Color.yellow);
 #endif
             TargetLost?.Invoke(this, Target);
             Target = null;

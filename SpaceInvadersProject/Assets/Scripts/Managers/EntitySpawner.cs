@@ -15,7 +15,7 @@ namespace SpaceInvaders
         [SerializeField]
         protected bool autoRespawn = false;
 
-        private Coroutine spawnCoroutine;
+        protected Coroutine spawnCoroutine;
         private GameManager gameManager;
 
         /// <summary>

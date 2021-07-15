@@ -1,8 +1,6 @@
 # Space Invaders
 
-I've tried to emulate the original style of the arcade game. The screen represents the resolution (224×256) and proportions of the original arcade machine. The way the enemies move and the positioning of every element on the screen uses a regular grid — as in the original game — and trying to achieve a “pixel-perfect” appearance. Also, all¹ the elements are rendered white. The coloring (red or green) is applied using an overlay that colors everything below it, similar to the original arcade machines, which had a colored layer glued over portions of the screen. All is done just for educational purposes.
-
-> ¹ The only exception is the Guided Missile's targeting implementation, which paints the invader red. This will be changed, and a sprite will be used to mark a target that is being tracked by a missile.
+I've tried to emulate the original style of the arcade game. The screen represents the resolution (224×256) and proportions of the original arcade machine. The way the enemies move and the positioning of every element on the screen uses a regular grid — as in the original game — and trying to achieve a “pixel-perfect” appearance. Also, all the elements are rendered white. The coloring (red or green) is applied using an overlay that colors everything below it, similar to the original arcade machines, which had a colored layer glued over portions of the screen. All is done just for educational purposes.
 
 ## New mechanics
 

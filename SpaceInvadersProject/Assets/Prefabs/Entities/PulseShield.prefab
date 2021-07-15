@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4389580207016270332}
   - component: {fileID: 4389580207016270331}
   - component: {fileID: 903969104482501321}
-  - component: {fileID: 2992002726109150592}
   m_Layer: 11
   m_Name: PulseShield
   m_TagString: Untagged
@@ -168,16 +167,3 @@ MonoBehaviour:
   duration: 1
   rechargeTime: 15
   pulseShieldIndicator: {fileID: 0}
---- !u!114 &2992002726109150592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4389580207016270329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4531fbe122f6e3c4c93e62fa7af764f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distortion: 0

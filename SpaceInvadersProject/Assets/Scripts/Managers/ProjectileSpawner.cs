@@ -8,13 +8,13 @@ namespace SpaceInvaders
     public class ProjectileSpawner : MonoBehaviour
     {
         [SerializeField, Range(1, 5)]
-        public int maxPrimaryProjectilesActive = 1;
+        private int maxPrimaryProjectilesActive = 1;
         [SerializeField, Range(1, 4)]
-        public int maxSecondaryProjectilesActive = 4;
+        private int maxSecondaryProjectilesActive = 4;
         [SerializeField, Range(1, 10)]
         private int maxInvaderProjectilesActive = 3;
         [SerializeField, Range(1, 100), Space]
-        public int gainSecondaryEveryNShots = 10;
+        private int gainSecondaryEveryNShots = 10;
         [SerializeField, Space]
         private PlayerResourceManager secondaryResourceManager;
 
@@ -23,6 +23,18 @@ namespace SpaceInvaders
         private int secondaryProjectileActiveCount;
         private int invaderProjectileActiveCount;
         private int primaryProjectileFireCount;
+
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+        public void SetMaxProjectileAndMissileGain(
+            int maxPrimaryProjectilesActive,
+            int maxSecondaryProjectilesActive,
+            int gainSecondaryEveryNShots)
+        {
+            this.maxPrimaryProjectilesActive = maxPrimaryProjectilesActive;
+            this.maxSecondaryProjectilesActive = maxSecondaryProjectilesActive;
+            this.gainSecondaryEveryNShots = gainSecondaryEveryNShots;
+        }
+#endif
 
         public void Register(IShooter shooter)
         {
@@ -63,7 +75,6 @@ namespace SpaceInvaders
             {
                 primaryProjectileFireCount = 0;
                 secondaryResourceManager.AddResourceUnit();
-                Debug.Log("Extra missile");
             }
         }
 

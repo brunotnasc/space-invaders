@@ -42,20 +42,6 @@ namespace SpaceInvaders
 
         private int currentLevel = 0;
 
-        private void Awake()
-        {
-            gameOverText.SetActive(false);
-            waveSpawner.WaveSpawned += OnWaveSpawnedEventHandler;
-            waveSpawner.WaveDestroyed += OnWaveDestroyedEventHandler;
-
-            Cursor.visible = false;
-        }
-
-        private void Start()
-        {
-            StartLevel(0);
-        }
-
         public void Register(IShooter shooter)
         {
             projectileSpawner.Register(shooter);
@@ -99,6 +85,20 @@ namespace SpaceInvaders
         public Vector2 GetGridCellCenterCanvasPosition(int row, int column)
         {
             return grid.GetGridCellCenterCanvasPosition(row, column);
+        }
+
+        private void Awake()
+        {
+            gameOverText.SetActive(false);
+            waveSpawner.WaveSpawned += OnWaveSpawnedEventHandler;
+            waveSpawner.WaveDestroyed += OnWaveDestroyedEventHandler;
+
+            Cursor.visible = false;
+        }
+
+        private void Start()
+        {
+            StartLevel(0);
         }
 
         private void StartLevel(int level)

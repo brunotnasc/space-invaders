@@ -127,10 +127,15 @@ MonoBehaviour:
   despawnOnCollision:
     serializedVersion: 2
     m_Bits: 0
-  fireKey: 32
+  fireLaserKey: 32
+  fireMissileKey: 306
+  omegaRayKey: 305
+  pulseShieldKey: 273
   moveRightKey: 275
   moveLeftKey: 276
   speed: 300
+  omegaRay: {fileID: 0}
+  pulseShield: {fileID: 0}
 --- !u!61 &5559940108356179070
 BoxCollider2D:
   m_ObjectHideFlags: 0

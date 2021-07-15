@@ -8,6 +8,15 @@ namespace SpaceInvaders
 
         public override void Spawn(float delay)
         {
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+            // The 'Spawn' button on the UfoSpawnerEditor can override an already running coroutine.
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null;
+            }
+#endif
+
             base.Spawn(delay);
             useAlternativeSpawnPoint = Random.Range(0, 2) > 0;
         }

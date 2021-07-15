@@ -77,11 +77,9 @@ namespace SpaceInvaders
             if (Input.GetKeyDown(KeyCode.G))
             {
                 maxHP = Health = 10000;
-                FindObjectOfType<ProjectileSpawner>().maxPrimaryProjectilesActive = 10;
-                FindObjectOfType<ProjectileSpawner>().maxSecondaryProjectilesActive = 10;
-                FindObjectOfType<ProjectileSpawner>().gainSecondaryEveryNShots = 1;
-                omegaRay.duration = pulseShield.duration = 5f;
-                omegaRay.chargeTime = pulseShield.rechargeTime = 0.5f;
+                FindObjectOfType<ProjectileSpawner>().SetMaxProjectileAndMissileGain(10, 10, 1);
+                omegaRay.SetDurationAndChargeTime(5f, 0.5f);
+                pulseShield.SetDurationAndRechargeTime(5f, 0.5f);
             }
 #endif
 
