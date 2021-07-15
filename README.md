@@ -6,7 +6,7 @@ I've tried to emulate the original style of the arcade game. The screen represen
 
 Here's where we try to make it even more fun. I've created three additional mechanics: the *Guided Missile* (L), the *Pulse Shield* (C), and the *Omega Ray* (R).
 
-<img alt="GuidedMissile" src="https://user-images.githubusercontent.com/40273816/125150580-34b97980-e117-11eb-966a-148d2ea807f1.gif" width=32%> <img alt="PulseShield" src="https://user-images.githubusercontent.com/40273816/125150610-764a2480-e117-11eb-8720-c55718e9b7c8.gif" width=32%> <img alt="OmegaRay" src="https://user-images.githubusercontent.com/40273816/125150585-3f740e80-e117-11eb-81a4-fb01d7600001.gif" width=32%>
+<img alt="GuidedMissile" src="https://user-images.githubusercontent.com/40273816/125726689-2ef67782-4717-4ab3-9ba8-306da127b206.gif" width=32%> <img alt="PulseShield" src="https://user-images.githubusercontent.com/40273816/125150610-764a2480-e117-11eb-8720-c55718e9b7c8.gif" width=32%> <img alt="OmegaRay" src="https://user-images.githubusercontent.com/40273816/125150585-3f740e80-e117-11eb-81a4-fb01d7600001.gif" width=32%>
 
 ### Guided Missile
 
