@@ -1065,6 +1065,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8527788566283372279, guid: d4988bb76a6eeee4fb8a28409c623f7b, type: 3}
   m_PrefabInstance: {fileID: 1956110494048648551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1956110494048648553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7029260431378682342, guid: d4988bb76a6eeee4fb8a28409c623f7b, type: 3}
+  m_PrefabInstance: {fileID: 1956110494048648551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73cfedc7ca0fec41ad0049df43fed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3110595727653524429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1195,9 +1206,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1676785779}
     m_Modifications:
+    - target: {fileID: 1310628930501975259, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310628930501975259, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1909313900005061633, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
       propertyPath: m_Name
       value: CanvasBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147642089133545151, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147642089133545151, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147642089133545151, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147642089133545151, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4208637387921674077, guid: 4903c6213b4565846acaad18f6221fd4, type: 3}
       propertyPath: m_Camera
@@ -1635,7 +1670,7 @@ PrefabInstance:
     - target: {fileID: 8617352265354184372, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
       propertyPath: grid
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1956110494048648553}
     - target: {fileID: 8617352265354184372, guid: 855b4ede1aa9d6349baa03b3d8bc1e5c, type: 3}
       propertyPath: waveSpawner
       value: 
